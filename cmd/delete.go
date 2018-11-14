@@ -45,26 +45,26 @@ var delCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-			lineDel := os.Args[2]
-			del, err := strconv.Atoi(lineDel)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(2)
+		lineDel := os.Args[2]
+		del, err := strconv.Atoi(lineDel)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(2)
+		}
+
+		d := del - 1
+
+		output = append(output[:d], output[d+1:]...)
+		os.Create(tmpConfig)
+
+		var j, r int
+		for r = range output {
+			for j = 1; j <= r; j++ {
 			}
-
-			d := del - 1
-
-			output = append(output[:d], output[d+1:]...)
-			os.Create(tmpConfig)
-
-			var j, r int
-			for r = range output {
-				for j = 1; j <= r; j++ {
-				}
-				WriteConfig(output, tmpConfig)
-			}
-			os.Rename(configFile, bakConfig)
-			os.Rename(tmpConfig, configFile)
-			os.Remove(bakConfig)
+			WriteConfig(output, tmpConfig)
+		}
+		os.Rename(configFile, bakConfig)
+		os.Rename(tmpConfig, configFile)
+		os.Remove(bakConfig)
 	},
 }

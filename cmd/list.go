@@ -44,4 +44,3 @@ var listCmd = &cobra.Command{
 		}
 	},
 }
-

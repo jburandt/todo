@@ -9,7 +9,7 @@ import (
 var RootCmd = &cobra.Command{
 	Use:   "todo",
 	Short: "Track list items",
-	Long: "Used to quickly track list items",
+	Long:  "Used to quickly track list items",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Basic commands are: list, add, del")
 	},

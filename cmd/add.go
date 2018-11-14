@@ -50,7 +50,6 @@ var addCmd = &cobra.Command{
 		newoutput := append(output, s)
 		WriteConfig(newoutput, configFile)
 
-
 		// debug
 		//f, err := os.Open(configFile)
 		//if err != nil {
